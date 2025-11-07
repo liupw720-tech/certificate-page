@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>证书信息</title>
+  <style>
+    /* 页面基础布局 */
+    body { margin: 0; padding: 24px; font-family: system-ui, -apple-system, Segoe UI, Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: #daecf5; color: #222; }
+    .sheet { width: 640px; margin: 0 auto; background: #fff; border: 2px solid #c9d6e2; border-radius: 4px; padding: 2px; }
+
+    /* 表格样式（纯 HTML 表格实现版） */
+    table { width: 100%; border-collapse: separate; border-spacing: 2px; table-layout: fixed; background: #fff; }
+    th, td { border: 1px solid #a0a0a0; padding: 10px 8px; vertical-align: middle; background: #fff; }
+    th { width: 220px; text-align: right; color: #333; font-weight: normal; }
+    td { text-align: left; }
+
+    /* 照片单元格 */
+    .photo-label { width: 220px; text-align: right; font-weight: normal; background: #fff; }
+    .photo-box { text-align: left; padding: 6px; }
+    .photo-box img { width: 140px; height: 182px; object-fit: cover; border-radius: 2px; border: none; }
+
+    /* 值文本适当换行 */
+    .value { word-break: break-all; }
+    .value-spaced { line-height: 1.6; }
+
+    /* 打印样式：A4 竖版，适配边距与对齐 */
+    @media print {
+      @page { size: A4 portrait; margin: 12mm; }
+      body { background: #fff; padding: 0; }
+      .sheet { width: 180mm; margin: 0 auto; background: #fff; border: 1px solid #000; border-radius: 0; }
+      table { border-collapse: separate; border-spacing: 2px; }
+      th, td { border-color: #000;background-color: #fff; }
+    }
+  </style>
+  <!-- 仅使用 HTML/CSS（无脚本） -->
+  <!-- 替换 img 的 src 为你的实际照片路径，即可显示证件照 -->
+</head>
+<body>
+  <div class="sheet">
+    <table>
+      <tr>
+        <th class="photo-label">照片：</th>
+        <td class="photo-box" colspan="1">
+          <img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEFvtlpDZqYGAmWOsN0eNwOqRwaUpuhWQACtxkAAqr0cVSKnSTHXwxRsjYE.jpg" alt="微信图片_20251106214522_24_43.jpg" />
+        </td>
+      </tr>
+      <tr>
+        <th>姓名：</th>
+        <td class="value">申灏楠</td>
+      </tr>
+      <tr>
+        <th>性别：</th>
+        <td class="value">男</td>
+      </tr>
+      <tr>
+        <th>身份证号：</th>
+        <td class="value">13042420001111183X</td>
+      </tr>
+      <tr>
+        <th>出生日期：</th>
+        <td class="value">2000-11-11</td>
+      </tr>
+      <tr>
+        <th>理论知识考试成绩：</th>
+        <td class="value">73.0</td>
+      </tr>
+      <tr>
+        <th>操作技能考核成绩：</th>
+        <td class="value">92.0</td>
+      </tr>
+      <tr>
+        <th>评定成绩：</th>
+        <td class="value">合格</td>
+      </tr>
+      <tr>
+        <th>证书编号：</th>
+        <td class="value">2536053010408019</td>
+      </tr>
+      <tr>
+        <th>职业（工种）：</th>
+        <td class="value">消防设施操作员</td>
+      </tr>
+      <tr>
+        <th>职业方向：</th>
+        <td class="value">消防设施监控操作</td>
+      </tr>
+      <tr>
+        <th>鉴定等级：</th>
+        <td class="value">四级（中级）</td>
+      </tr>
+      <tr>
+        <th>颁证日期：</th>
+        <td class="value">2025-11-09</td>
+      </tr>
+      <tr>
+        <th>鉴定中心：</th>
+        <td class="value">内蒙古鉴定站</td>
+      </tr>
+      <tr>
+        <th>发证机关：</th>
+        <td class="value">消防行业职业技能鉴定指导中心</td>
+      </tr>
+      <tr>
+        <th>证书打印流水号：</th>
+        <td class="value value-spaced">
+          流水号：0500009432 正常</br>
+          打印用户名：nmggly</br>
+          打印时间：2025-11-09 11:00
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
