@@ -10,17 +10,34 @@
     *, *::before, *::after { box-sizing: border-box; }
     
     /* 页面基础布局 */
-    body { margin: 0; padding: 32px; font-family: system-ui, -apple-system, Segoe UI, Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: #daecf5; color: #222; }
-    .sheet { width: 640px; margin: 0 auto; background: #fff; border: 2px solid #c9d6e2; border-radius: 4px; padding: 2px; }
+    body { 
+      margin: 0; 
+      padding: 0 16px; 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; 
+      background: #daecf5; 
+      color: #000; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .sheet { 
+      width: 640px; 
+      margin: 0 auto; 
+      background: #fff; 
+      border: 2px solid #c9d6e2; 
+      border-radius: 4px; 
+      transition: all 0.3s ease;
+    }
 
     /* 表格样式（纯 HTML 表格实现版） */
     table { width: 100%; border-collapse: separate; border-spacing: 2px; table-layout: fixed; background: #fff; }
-    th, td { border: 1px solid #a0a0a0; padding: 6px 8px; vertical-align: middle; background: #fff; }
-    th { width: 220px; text-align: right; color: #333; font-weight: normal; }
+    th, td { border: 1px solid #a0a0a0; padding: 0px 8px; vertical-align: middle; background: #fff; }
+    th { width: 240px; text-align: right; color: #000; font-weight: normal; }
     td { text-align: left; }
 
     /* 照片单元格 */
-    .photo-label { width: 220px; text-align: right; font-weight: normal; background: #fff; }
+    .photo-label { width: 240px; text-align: right; font-weight: normal; background: #fff; }
     .photo-box { text-align: left; padding: 6px; }
     .photo-box img { width: 140px; height: 182px; object-fit: cover; border-radius: 2px; border: none; }
 
@@ -30,46 +47,58 @@
 
     /* 移动端适配 */
     @media screen and (max-width: 768px) {
-      body { padding: 20px 150px; }
-      .sheet { width: 100%; max-width: 100%; margin: 0 auto; padding: 2px; border-width: 2px; }
+      body { padding: 0px; }
+      .sheet { 
+        width: 33.33%; 
+        min-width: 280px; /* 防止在极小屏幕上过度缩小 */
+      }
       table { font-size: 14px; border-spacing: 2px; width: 100%; }
       th, td { padding: 5px 6px; font-size: 14px; line-height: 1.3; }
-      th { width: 160px; font-size: 13px; text-align: right; }
-      .photo-label { width: 160px; text-align: right; }
+      th { width: 45%; font-size: 13px; text-align: right; }
+      .photo-label { width: 45%; text-align: right; }
       .photo-box { text-align: left; padding: 4px; }
       .photo-box img { width: 90px; height: 117px; max-width: 100%; }
-      td { text-align: left; }
+      td { text-align: left; width: 55%; }
       .value-spaced { line-height: 1.3; }
     }
 
     @media screen and (max-width: 480px) {
-      body { padding: 16px 150px; }
-      .sheet { width: 100%; max-width: 100%; margin: 0 auto; padding: 2px; border-width: 2px; }
-      table { font-size: 11px; border-spacing: 1.5px; width: 100%; }
-      th, td { padding: 4px 5px; font-size: 11px; line-height: 1.3; }
-      th { width: 140px; font-size: 10px; text-align: right; }
-      .photo-label { width: 140px; text-align: right; }
-      .photo-box { text-align: left; padding: 3px; }
+      body { padding: 0 16px; }
+      .sheet { 
+        width: 33.33%; 
+        min-width: 250px;
+      }
+      table { font-size: 8px; border-spacing: 1.5px; width: 100%; }
+      th, td { padding: 4px 5px; font-size: 8px; line-height: 1.3; }
+      th { width: 45%; font-size: 8px; text-align: right; }
+      .photo-label { width: 45%; text-align: right; }
+      .photo-box { text-align: left; padding: 0px; }
       .photo-box img { width: 70px; height: 91px; max-width: 100%; }
-      td { text-align: left; word-break: break-word; }
+      td { text-align: left; word-break: break-word; width: 55%; }
       .value-spaced { line-height: 1.3; }
     }
     
     /* 超小屏幕进一步缩小，减少边距以适应屏幕 */
     @media screen and (max-width: 375px) {
-      body { padding: 12px 20px; }
+      body { padding: 0 12px; }
+      .sheet { 
+        width: 33.33%; 
+        min-width: 220px;
+        transform: scale(0.8);
+      }
       table { font-size: 10px; border-spacing: 1px; }
       th, td { padding: 3px 4px; font-size: 10px; line-height: 1.2; }
-      th { width: 110px; font-size: 9px; }
-      .photo-label { width: 110px; }
-      .photo-box { padding: 2px; }
+      th { width: 45%; font-size: 9px; }
+      .photo-label { width: 45%; }
+      .photo-box { padding: 0px; }
       .photo-box img { width: 60px; height: 78px; }
+      td { width: 55%; }
       .value-spaced { line-height: 1.2; }
     }
     
     /* 屏幕宽度不足以容纳150px边距时，自动减少边距 */
     @media screen and (max-width: 500px) and (min-width: 376px) {
-      body { padding-left: 30px; padding-right: 30px; }
+      body { padding-left: 20px; padding-right: 20px; }
     }
 
     /* 打印样式：A4 竖版，适配边距与对齐 */
@@ -81,8 +110,6 @@
       th, td { border-color: #000;background-color: #fff; }
     }
   </style>
-  <!-- 仅使用 HTML/CSS（无脚本） -->
-  <!-- 替换 img 的 src 为你的实际照片路径，即可显示证件照 -->
 </head>
 <body>
   <div class="sheet">
